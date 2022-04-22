@@ -14,11 +14,11 @@ jobs:
     name: Build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           token: ${{ env.GITHUB_TOKEN }}
 
-      - uses: actions/setup-node@v2
+      - uses: actions/setup-node@v3
         with:
           node-version: "lts/*"
         
@@ -31,7 +31,7 @@ jobs:
         run: npm run build
 
       # Upload dist artifacts
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v3
         with:
           name: dist
           path: dist/
@@ -49,16 +49,16 @@ jobs:
     #   name: pchmn.github.io/vite-react-ts-ghactions-template
     #   url: https://pchmn.github.io/vite-react-ts-ghactions-template/
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           token: ${{ env.GITHUB_TOKEN }}
 
-      - uses: actions/setup-node@v2
+      - uses: actions/setup-node@v3
         with:
           node-version: "lts/*"
 
       # Download dist artifacts
-      - uses: actions/download-artifact@v2
+      - uses: actions/download-artifact@v3
         with:
           name: dist
           path: dist/
